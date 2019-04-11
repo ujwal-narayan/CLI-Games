@@ -2,3 +2,4 @@
 Short weekend projects implementing various games in Haskell 
 ## Games Done so far 
 - Hangman
+- Tic Tac Toe
