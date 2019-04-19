@@ -1,6 +1,8 @@
 import Control.Monad
 import Text.Read
 import Data.Maybe
+
+printSquares :: Board -> IO ()
 printSquares board =
    forM_ [0..2] $ \x ->
       forM_ [0..2] $ \y ->
@@ -10,8 +12,8 @@ printSquares board =
                          putChar (((board !! x!! )y) )
                          if x `mod`3 == 0 then putStr "|" else putStr "|"
                          if x == 2 && y == 2 then do{putStrLn "\n\n\n"} else putStr ""
-                  
-                       --  if turn == 'x' then printSquares $ updateMatrix board 'o' (row,col) else printSquares $ updateMatrix board 'x' (row,col)
+
+                      --  if turn == 'x' then printSquares $ updateMatrix board 'o' (row,col) else printSquares $ updateMatrix board 'x' (row,col)
 
 type Board = [[Char]]
 
@@ -40,6 +42,8 @@ loop board turn = do
          if col  < 0 || col > 2 then do {putStrLn "Value has to be between 0 and 2"; loop board turn} else
            do
              if checkOccupied board row col then occupiedRetry board turn else if turn == 'x' then updateMover board 'x' (row,col) 'o' else updateMover board 'o' (row,col) 'x'
+
+
 
 
 updateMover board turn (row,col) next = do
