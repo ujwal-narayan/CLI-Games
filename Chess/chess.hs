@@ -195,5 +195,7 @@ changeOutputToBoardRep (x,y) = ((['a'..'z'] !! y) ,8-x )
 
 remainingPieces board = filter (/=Blank) $ concat board 
 
-validMoves board p 
-  | p == Queen = 
+-- validMoves board p 
+--   | p == Queen = 
+validMoves board p = [(0,0)]
+--Placeholder text 
